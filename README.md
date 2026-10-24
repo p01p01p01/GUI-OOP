@@ -70,14 +70,3 @@ docs/
   PROJECT_DOCUMENTATION.md   documentation sections required by the course
   UML.md                     UML class diagram (Mermaid)
 ```
-
-## OOP at a glance
-
-| Pillar | Where |
-|---|---|
-| Encapsulation | Private fields with validated getters/setters in `LibraryItem`, `Member`, `Loan`; `Library` hides its collections |
-| Inheritance | `Book`, `Magazine`, `DVD` extend `LibraryItem`; `StudentMember`, `FacultyMember` extend `Member` |
-| Polymorphism | Overridden `getLoanPeriodDays()`, `getDailyLateFee()`, `getMaxLoans()`, `getFeeDiscount()`, `getExtraInfo()`; `Library` treats all items as `LibraryItem` and all members as `Member` |
-| Abstraction | Abstract classes `LibraryItem` and `Member`; interface `Searchable` |
-
-Full explanation: [`docs/PROJECT_DOCUMENTATION.md`](docs/PROJECT_DOCUMENTATION.md)
