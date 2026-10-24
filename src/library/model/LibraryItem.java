@@ -2,16 +2,9 @@ package library.model;
 
 import java.time.Year;
 
-/**
- * ABSTRACTION (abstract class): the common blueprint of everything the library lends.
- * It cannot be instantiated; subclasses (Book, Magazine, DVD) supply the details.
- *
- * ENCAPSULATION: all fields are private. They are read through getters and
- * changed only through validated setters.
- */
 public abstract class LibraryItem implements Searchable {
     private final String id;
-    private String title;
+    private String title; 
     private String creator;
     private int year;
     private boolean available = true;
@@ -26,7 +19,6 @@ public abstract class LibraryItem implements Searchable {
         setYear(year);
     }
 
-    // ---------- Abstract methods: each subclass MUST provide its own behavior ----------
 
     /** Human-readable type, e.g. "Book". */
     public abstract String getType();
@@ -37,7 +29,7 @@ public abstract class LibraryItem implements Searchable {
     /** Late fee charged per overdue day (PHP). */
     public abstract double getDailyLateFee();
 
-    /** Label for the type-specific field, e.g. "ISBN". */
+    /** for the type-specific field, e.g. "ISBN". */
     public abstract String getExtraLabel();
 
     /** Value of the type-specific field as text. */
@@ -46,9 +38,8 @@ public abstract class LibraryItem implements Searchable {
     /** Validates and sets the type-specific field from text. */
     public abstract void setExtraInfo(String value);
 
-    // ---------- Shared behavior ----------
 
-    /** Late fee for this item. Subclasses change the result by overriding getDailyLateFee(). */
+    /** Late fee for this item. */
     public double calculateLateFee(long daysLate) {
         return daysLate <= 0 ? 0 : daysLate * getDailyLateFee();
     }
@@ -70,7 +61,7 @@ public abstract class LibraryItem implements Searchable {
                 || getExtraInfo().toLowerCase().contains(k);
     }
 
-    // ---------- Getters and validated setters (encapsulation) ----------
+    //  Getters and setters 
 
     public String getId() { return id; }
     public String getTitle() { return title; }

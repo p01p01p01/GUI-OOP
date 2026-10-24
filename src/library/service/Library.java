@@ -266,9 +266,7 @@ public class Library {
         return false;
     }
 
-    // ======================= Generic search =======================
-
-    /** POLYMORPHISM via the Searchable interface: one method searches items AND members. */
+    /** Searchable interface: one method searches items AND members. */
     private <T extends Searchable> List<T> filter(Collection<T> source, String keyword) {
         List<T> result = new ArrayList<>();
         for (T t : source) {

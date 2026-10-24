@@ -44,7 +44,7 @@ public class Loan {
         return !isReturned() && getDaysOverdue(asOf) > 0;
     }
 
-    /** Item's fee rule x member's discount. Two polymorphic calls decide the result. */
+    /** Item fee rule x member's discount. T */
     public double calculateFee(LocalDate asOf) {
         double base = item.calculateLateFee(getDaysOverdue(asOf));
         return base * (1.0 - member.getFeeDiscount());

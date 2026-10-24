@@ -1,6 +1,5 @@
 package library.model;
 
-/** INHERITANCE: a student member borrows fewer items and pays full late fees. */
 public class StudentMember extends Member {
     public StudentMember(String id, String name, String email) {
         super(id, name, email);
