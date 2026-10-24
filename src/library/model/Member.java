@@ -31,11 +31,15 @@ public abstract class Member implements Searchable {
     public String getEmail() { return email; }
 
     public final void setName(String name) {
-        if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException("Name is required.");
-        }
-        this.name = name.trim();
+    if (name == null || name.isBlank()) {
+        throw new IllegalArgumentException("Name is required.");
     }
+    if (!name.trim().matches("[\\p{L}][\\p{L} .'-]*")) {
+        throw new IllegalArgumentException(
+                "Name can only contain letters, spaces, periods, hyphens, and apostrophes.");
+    }
+    this.name = name.trim();
+}
 
     public final void setEmail(String email) {
         if (email == null || !email.trim().matches("^[\\w.+-]+@[\\w-]+(\\.[\\w-]+)+$")) {
